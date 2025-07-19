@@ -298,34 +298,7 @@ html {
   padding-bottom: 32px;
 }
 
-/* Artist Header Styles */
-.artist-header {
-  display: flex;
-  align-items: center;
-  padding: 16px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(27, 38, 46, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.back-button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 8px;
-  margin-right: 16px;
-  color: #1b262e;
-}
-
-.artist-header-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1b262e;
-  margin: 0;
-}
+/* Artist Header removed - using main Header component instead */
 
 /* Artist Profile Styles */
 .artist-profile {
@@ -687,4 +660,361 @@ html {
 .nav-label {
   font-size: 12px;
   font-weight: 500;
+}
+
+/* Song Page Styles */
+.song-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.song-content {
+  flex: 1;
+  padding-bottom: 32px;
+}
+
+/* Song Info Styles */
+.song-info {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.song-album-cover {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.song-album-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.song-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.song-title-section {
+  flex: 1;
+}
+
+.song-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1b262e;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.song-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1b262e;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.song-respect {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+.song-buttons {
+  display: flex;
+  gap: 8px;
+  align-self: flex-start;
+}
+
+.play-spotify-button {
+  background-color: #f9dc38;
+  color: #1b262e;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.play-spotify-button:hover {
+  background-color: #f5d428;
+}
+
+.song-info .send-respect-button {
+  background-color: #f9dc38;
+  color: #1b262e;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.song-info .send-respect-button:hover {
+  background-color: #f5d428;
+}
+
+/* More by Artist Styles */
+.more-by-artist {
+  margin-bottom: 24px;
+}
+
+.artist-songs-container {
+  padding: 0 16px;
+}
+
+.artist-song-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.artist-song-item:last-child {
+  border-bottom: none;
+}
+
+.artist-song-cover {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.artist-song-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-song-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1b262e;
+  margin: 0 0 2px 0;
+}
+
+.artist-song-artist {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+/* User Page Styles */
+.user-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-content {
+  flex: 1;
+  padding-bottom: 32px;
+}
+
+/* User Profile Styles */
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.user-profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 3px solid #ffe8a0;
+}
+
+.user-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1b262e;
+  margin: 0 0 4px 0;
+}
+
+.user-handle {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.user-bio {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1b262e;
+  margin: 0;
+  max-width: 280px;
+}
+
+/* User Stats Styles */
+.user-stats {
+  display: flex;
+  gap: 12px;
+  padding: 0 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  flex: 1;
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1b262e;
+  margin-bottom: 4px;
+}
+
+.stat-change {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.stat-change.positive {
+  color: #22c55e;
+}
+
+.stat-song {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1b262e;
+  margin-bottom: 4px;
+}
+
+.stat-count {
+  font-size: 14px;
+  color: #666;
+}
+
+/* User Top Artists Styles */
+.user-top-artists {
+  margin-bottom: 24px;
+}
+
+.top-artists-grid {
+  display: flex;
+  gap: 16px;
+  padding: 0 16px;
+  overflow-x: auto;
+}
+
+.top-artist-card {
+  flex-shrink: 0;
+  text-align: center;
+  width: 120px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.top-artist-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto 8px auto;
+}
+
+.top-artist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-artist-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1b262e;
+  margin: 0 0 4px 0;
+}
+
+.top-artist-respect {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+/* User Top Songs Styles */
+.user-top-songs {
+  margin-bottom: 24px;
+}
+
+.top-songs-grid {
+  display: flex;
+  gap: 16px;
+  padding: 0 16px;
+  overflow-x: auto;
+}
+
+.top-song-card {
+  flex-shrink: 0;
+  text-align: center;
+  width: 120px;
+}
+
+.top-song-cover {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto 8px auto;
+}
+
+.top-song-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-song-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1b262e;
+  margin: 0 0 4px 0;
+}
+
+.top-song-respect {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
 }

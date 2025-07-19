@@ -1,5 +1,5 @@
 import React from 'react'
-import ArtistHeader from './ArtistHeader'
+import Header from './Header'
 import ArtistProfile from './ArtistProfile'
 import TopSupporters from './TopSupporters'
 import RecentSupporters from './RecentSupporters'
@@ -9,7 +9,7 @@ import SongsList from './SongsList'
 const ArtistPage = () => {
   return (
     <div className="artist-page">
-      <ArtistHeader />
+      <Header />
       <div className="artist-content">
         <ArtistProfile />
         <TopSupporters />
