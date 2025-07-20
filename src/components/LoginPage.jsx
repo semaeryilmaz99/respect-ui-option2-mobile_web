@@ -25,6 +25,15 @@ const LoginPage = () => {
           </p>
         </div>
 
+        <button onClick={handleSpotifyLogin} className="spotify-login-button">
+          <img src="/src/assets/spotify.jpg" alt="Spotify" className="spotify-icon" />
+          Spotify ile Giriş Yap
+        </button>
+
+        <div className="divider">
+          <span className="divider-text">veya</span>
+        </div>
+
         <form className="login-form" onSubmit={handleLogin}>
           <div className="input-group">
             <label htmlFor="email" className="input-label">Email</label>
@@ -56,15 +65,6 @@ const LoginPage = () => {
             Giriş Yap
           </button>
         </form>
-
-        <div className="divider">
-          <span className="divider-text">veya</span>
-        </div>
-
-        <button onClick={handleSpotifyLogin} className="spotify-login-button">
-          <div className="spotify-icon">♪</div>
-          Spotify ile Giriş Yap
-        </button>
 
         <div className="login-footer">
           <a href="#forgot" className="forgot-link">
