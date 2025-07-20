@@ -28,11 +28,11 @@ const OnboardingPage = () => {
   ]
 
   const artists = [
-    { id: 1, name: "Liam Carter", respect: "120 Respect", avatar: "👨‍🎤" },
-    { id: 2, name: "Olivia Bennett", respect: "110 Respect", avatar: "👩‍🎤" },
-    { id: 3, name: "Noah Thompson", respect: "100 Respect", avatar: "👨‍🎤" },
-    { id: 4, name: "Ava Harper", respect: "90 Respect", avatar: "👩‍🎤" },
-    { id: 5, name: "Ethan Parker", respect: "80 Respect", avatar: "👨‍🎤" }
+    { id: 1, name: "Liam Carter", respect: "120 Respect", avatar: "/src/assets/artist/Image (1).png" },
+    { id: 2, name: "Olivia Bennett", respect: "110 Respect", avatar: "/src/assets/artist/Image (2).png" },
+    { id: 3, name: "Noah Thompson", respect: "100 Respect", avatar: "/src/assets/artist/Image (3).png" },
+    { id: 4, name: "Ava Harper", respect: "90 Respect", avatar: "/src/assets/artist/Image (4).png" },
+    { id: 5, name: "Ethan Parker", respect: "80 Respect", avatar: "/src/assets/artist/Image (5).png" }
   ]
 
   const handleNext = () => {
@@ -84,35 +84,29 @@ const OnboardingPage = () => {
                     <h4 className="artist-name">{artist.name}</h4>
                     <p className="artist-respect">{artist.respect}</p>
                   </div>
-                  <div className="artist-avatar">{artist.avatar}</div>
+                  <div className="artist-avatar">
+                    <img src={artist.avatar} alt={artist.name} />
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         )}
 
+        {/* Text Content */}
+        <div className={`text-content ${currentStep === 2 ? 'text-content-small-margin' : ''}`}>
+          <h1 className={`step-title ${currentStep === 2 ? 'step-title-large' : ''}`}>{currentStepData.title}</h1>
+          <p className="step-subtitle">{currentStepData.subtitle}</p>
+        </div>
+
         {/* Step 3: Community Illustration */}
         {currentStep === 2 && (
           <div className="community-illustration">
             <div className="community-image">
-              <div className="music-community">
-                <div className="musician guitarist">🎸</div>
-                <div className="musician singer">🎤</div>
-                <div className="music-note">🎵</div>
-                <div className="music-note">🎶</div>
-                <div className="fan">👨‍💻</div>
-                <div className="fan">👩‍💻</div>
-                <div className="heart-icon">❤️</div>
-              </div>
+              <img src="/src/assets/onb-3.png" alt="Community Illustration" />
             </div>
           </div>
         )}
-
-        {/* Text Content */}
-        <div className="text-content">
-          <h1 className="step-title">{currentStepData.title}</h1>
-          <p className="step-subtitle">{currentStepData.subtitle}</p>
-        </div>
 
         {/* Next Button */}
         <button className="next-button" onClick={handleNext}>
