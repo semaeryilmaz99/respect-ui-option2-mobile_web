@@ -1239,3 +1239,232 @@ html {
     padding: 20px 16px;
   }
 }
+
+/* Send Respect Page Styles */
+.send-respect-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Respect Header */
+.respect-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #1b262e;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.close-button:hover {
+  background-color: #f5f5f5;
+}
+
+.respect-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1b262e;
+  margin: 0;
+}
+
+/* Respect Content */
+.respect-content {
+  flex: 1;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Song Info Section */
+.song-info-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.song-cover {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #f5f5f5;
+}
+
+.song-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.song-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1b262e;
+  margin: 0 0 4px 0;
+}
+
+.artist-name {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Amount Selection */
+.amount-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1b262e;
+  margin: 0;
+}
+
+.amount-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.amount-button {
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1b262e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.amount-button:hover {
+  border-color: #fee28f;
+  background-color: #fefcf0;
+}
+
+.amount-button.selected {
+  border-color: #fee253;
+  background-color: #fee253;
+  color: #1b262e;
+}
+
+.custom-amount-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  font-size: 16px;
+  color: #1b262e;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.custom-amount-input:focus {
+  border-color: #fee28f;
+}
+
+.custom-amount-input::placeholder {
+  color: #999;
+}
+
+/* Send Support Button */
+.send-support-button {
+  width: 100%;
+  padding: 18px;
+  background-color: #f9dc38;
+  color: #1b262e;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: auto;
+}
+
+.send-support-button:hover:not(:disabled) {
+  background-color: #f5d428;
+}
+
+.send-support-button:disabled {
+  background-color: #f9dc38;
+  color: #1b262e;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.send-support-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .respect-content {
+    padding: 20px 16px;
+    gap: 28px;
+  }
+  
+  .song-cover {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .song-name {
+    font-size: 18px;
+  }
+  
+  .amount-button {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+  
+  .custom-amount-input {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+  
+  .send-support-button {
+    padding: 16px;
+    font-size: 17px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+  .respect-content {
+    padding: 16px 12px;
+  }
+  
+  .amount-grid {
+    gap: 10px;
+  }
+  
+  .amount-button {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+}
