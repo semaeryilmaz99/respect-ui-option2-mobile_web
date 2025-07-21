@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from './Header'
 import FeedCard from './FeedCard'
-import BottomNavigation from './BottomNavigation'
 
 const FeedPage = () => {
   // Sample feed data
@@ -59,8 +58,6 @@ const FeedPage = () => {
           />
         ))}
       </div>
-
-      <BottomNavigation />
     </div>
   )
 }

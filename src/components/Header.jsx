@@ -19,7 +19,12 @@ const Header = () => {
       
       <div className="search-container">
         <div className="search-bar">
-          <span className="search-icon">🔍</span>
+          <span className="search-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </span>
           <input 
             type="text" 
             placeholder="sanatçı, şarkı veya kullanıcı ara"
