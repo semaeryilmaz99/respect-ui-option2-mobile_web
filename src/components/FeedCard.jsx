@@ -27,6 +27,7 @@ const FeedCard = ({ type, title, buttonText, profileImage }) => {
       </div>
       
       <div className="card-content">
+        <div className="card-top">
         <div className="card-text">
           <h3 className="card-title">{title}</h3>
         </div>
@@ -43,6 +44,7 @@ const FeedCard = ({ type, title, buttonText, profileImage }) => {
       <button className="card-button">
         {buttonText}
       </button>
+      </div>
     </div>
   )
 }
