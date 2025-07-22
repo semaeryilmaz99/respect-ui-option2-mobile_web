@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css'
-import SongPage from './components/SongPage'
+import UserPage from './components/UserPage'
 
 function App() {
-  return <SongPage />
+  return <UserPage />
 }
 
 export default App

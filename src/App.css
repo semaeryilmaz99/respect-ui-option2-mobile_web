@@ -457,6 +457,11 @@ html {
   margin-bottom: 24px;
 }
 
+.user-top-artists .section-title,
+.user-top-songs .section-title {
+  margin-bottom: 24px;
+}
+
 .real-time-chat .section-title {
   padding: 0;
   margin-bottom: 12px;

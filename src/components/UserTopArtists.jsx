@@ -2,15 +2,15 @@ import React from 'react'
 
 const UserTopArtists = () => {
   const topArtists = [
-    { id: 1, name: "Liam Harper", respect: "123 Respect", image: "/src/assets/user/Image (1).png" },
-    { id: 2, name: "Olivia Bennett", respect: "102 Respect", image: "/src/assets/user/Image (2).png" },
-    { id: 3, name: "Noah Thompson", respect: "98 Respect", image: "/src/assets/user/Image (3).png" },
-    { id: 4, name: "Emma Wilson", respect: "87 Respect", image: "/src/assets/user/Image (4).png" }
+    { id: 1, name: "Sezen Aksu", respect: "123 Respect", image: "/src/assets/artist/Image.png" },
+    { id: 2, name: "Tarkan", respect: "102 Respect", image: "/src/assets/artist/Image (1).png" },
+    { id: 3, name: "Ajda Pekkan", respect: "98 Respect", image: "/src/assets/artist/Image (2).png" },
+    { id: 4, name: "Barış Manço", respect: "87 Respect", image: "/src/assets/artist/Image (3).png" }
   ]
 
   return (
     <div className="user-top-artists">
-      <h3 className="section-title">Artists They've Sent the Most Respect To</h3>
+      <h3 className="section-title">En Çok Respect Gönderdiği Sanatçılar</h3>
       
       <div className="top-artists-grid">
         {topArtists.map((artist) => (
