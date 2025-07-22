@@ -845,10 +845,13 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   padding: 16px;
-  margin-bottom: 24px;
+  margin: 0 auto 24px auto;
   text-align: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .song-album-cover {
@@ -857,6 +860,8 @@ html {
   border-radius: 12px;
   overflow: hidden;
   flex-shrink: 0;
+  margin-left: auto;
+  margin-right: -15px;
 }
 
 .song-album-cover img {
@@ -869,15 +874,19 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   text-align: center;
+  width: 70%;
 }
 
 .song-title-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  width: 100%;
 }
 
 .song-title {
@@ -1548,6 +1557,88 @@ html {
   border-color: #fee253;
   background-color: #fee253;
   color: #1b262e;
+}
+
+.amount-button:nth-child(n+2) {
+  background-color: #fbdb3a;
+  border-color: #fbdb3a;
+  color: #1b262e;
+}
+
+.amount-button:nth-child(n+2):hover {
+  background-color: #f9d424;
+  border-color: #f9d424;
+}
+
+/* Progressive button sizes based on respect amount */
+.amount-button:nth-child(1) {
+  /* 20 Respect - smallest */
+  padding: 12px 16px;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.amount-button:nth-child(2) {
+  /* 50 Respect */
+  padding: 14px 18px;
+  font-size: 15px;
+  opacity: 0.6;
+}
+
+.amount-button:nth-child(3) {
+  /* 100 Respect */
+  padding: 16px 20px;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.amount-button:nth-child(4) {
+  /* 200 Respect */
+  padding: 18px 22px;
+  font-size: 17px;
+  opacity: 0.8;
+}
+
+.amount-button:nth-child(5) {
+  /* 500 Respect */
+  padding: 20px 24px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.amount-button:nth-child(6) {
+  /* 1000 Respect - largest */
+  padding: 22px 26px;
+  font-size: 19px;
+  font-weight: 600;
+  opacity: 1.0;
+  position: relative;
+  overflow: hidden;
+}
+
+.amount-button:nth-child(6)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
 .custom-amount-input {

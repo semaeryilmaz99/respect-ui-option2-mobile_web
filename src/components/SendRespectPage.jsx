@@ -19,7 +19,7 @@ const SendRespectPage = () => {
   const handleSendRespect = () => {
     const amount = selectedAmount || parseInt(customAmount)
     if (amount) {
-      console.log(`Sending ${amount} respect to Sunset Serenade`)
+      console.log(`Gidiyorum şarkısına ${amount} respect gönderiliyor`)
       // Send respect logic will be implemented later
     }
   }
@@ -27,23 +27,22 @@ const SendRespectPage = () => {
   return (
     <div className="send-respect-page">
       <div className="respect-header">
-        <button className="close-button">✕</button>
-        <h1 className="respect-title">Send Respect</h1>
+        <h1 className="respect-title">Respect Gönder</h1>
       </div>
 
       <div className="respect-content">
         <div className="song-info-section">
           <div className="song-cover">
-            <img src="/src/assets/respect.png" alt="Sunset Serenade" />
+            <img src="/src/assets/respect.png" alt="Gidiyorum" />
           </div>
           <div className="song-details">
-            <h2 className="song-name">Sunset Serenade</h2>
-            <p className="artist-name">Song by Alex</p>
+            <h2 className="song-name">Gidiyorum</h2>
+            <p className="artist-name">Sezen Aksu</p>
           </div>
         </div>
 
         <div className="amount-selection">
-          <h3 className="section-title">Select Amount</h3>
+          <h3 className="section-title">Miktar Seç</h3>
           
           <div className="amount-grid">
             {respectAmounts.map((amount) => (
@@ -59,7 +58,7 @@ const SendRespectPage = () => {
 
           <input
             type="number"
-            placeholder="Enter amount"
+            placeholder="Miktar girin"
             value={customAmount}
             onChange={handleCustomAmountChange}
             className="custom-amount-input"
@@ -71,7 +70,7 @@ const SendRespectPage = () => {
           onClick={handleSendRespect}
           disabled={!selectedAmount && !customAmount}
         >
-          Send and Support
+          Gönder ve Destekle
         </button>
       </div>
     </div>
