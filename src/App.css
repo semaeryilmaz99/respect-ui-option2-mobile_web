@@ -1207,7 +1207,7 @@ html {
 /* Login Page Styles */
 .login-page {
   min-height: 100vh;
-  background-color: #fee392;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1218,9 +1218,14 @@ html {
   width: 100%;
   max-width: 400px;
   padding: 32px 24px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(27, 38, 46, 0.1);
+  background-color: #f4f4f4;
+  border-radius: 40px;
+  box-shadow: 
+    0 8px 25px rgba(27, 38, 46, 0.15),
+    0 3px 12px rgba(27, 38, 46, 0.1),
+    0 -2px 8px rgba(27, 38, 46, 0.05),
+    2px 0 8px rgba(27, 38, 46, 0.05),
+    -2px 0 8px rgba(27, 38, 46, 0.05);
 }
 
 /* Login Header */
@@ -1404,7 +1409,6 @@ html {
   
   .login-container {
     padding: 24px 20px;
-    border-radius: 12px;
   }
   
   .login-title {
