@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css'
-import FeedPage from './components/FeedPage'
+import SendRespectPage from './components/SendRespectPage'
 
 function App() {
-  return <FeedPage />
+  return <SendRespectPage />
 }
 
 export default App
