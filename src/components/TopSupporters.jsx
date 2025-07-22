@@ -2,16 +2,16 @@ import React from 'react'
 
 const TopSupporters = () => {
   const supporters = [
-    { id: 1, name: "Liam Carter", respect: "120 Respect", image: "/src/assets/artist/Image (1).png" },
-    { id: 2, name: "Olivia Bennett", respect: "110 Respect", image: "/src/assets/artist/Image (2).png" },
-    { id: 3, name: "Noah Thompson", respect: "100 Respect", image: "/src/assets/artist/Image (3).png" },
-    { id: 4, name: "Ava Harper", respect: "90 Respect", image: "/src/assets/artist/Image (4).png" },
-    { id: 5, name: "Ethan Parker", respect: "80 Respect", image: "/src/assets/artist/Image (5).png" }
+    { id: 1, name: "Mehmet Yılmaz", respect: "120 Respect", image: "/src/assets/user/Image.png" },
+    { id: 2, name: "Ayşe Kaya", respect: "110 Respect", image: "/src/assets/user/Image (1).png" },
+    { id: 3, name: "Ali Demir", respect: "100 Respect", image: "/src/assets/user/Image (2).png" },
+    { id: 4, name: "Fatma Şahin", respect: "90 Respect", image: "/src/assets/user/Image (3).png" },
+    { id: 5, name: "Mustafa Özkan", respect: "80 Respect", image: "/src/assets/user/Image (4).png" }
   ]
 
   return (
     <div className="top-supporters">
-      <h3 className="section-title">Top Supporters</h3>
+      <h3 className="section-title">En Çok Destekleyenler</h3>
       
       <div className="supporters-list">
         {supporters.map((supporter) => (

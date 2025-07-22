@@ -2,19 +2,19 @@ import React from 'react'
 
 const RecentSupporters = () => {
   const recentSupporters = [
-    { id: 1, name: "Owen Parker", respect: "500 Respect", image: "/src/assets/artist/Image (6).png" },
-    { id: 2, name: "Chloe Evans", respect: "450 Respect", image: "/src/assets/artist/Image (7).png" },
-    { id: 3, name: "Lucas Mitchell", respect: "400 Respect", image: "/src/assets/artist/Image.png" },
-    { id: 4, name: "Emma Wilson", respect: "380 Respect", image: "/src/assets/artist/Image (1).png" },
-    { id: 5, name: "James Brown", respect: "360 Respect", image: "/src/assets/artist/Image (2).png" },
-    { id: 6, name: "Sophia Davis", respect: "340 Respect", image: "/src/assets/artist/Image (3).png" },
-    { id: 7, name: "Michael Johnson", respect: "320 Respect", image: "/src/assets/artist/Image (4).png" },
-    { id: 8, name: "Isabella Garcia", respect: "300 Respect", image: "/src/assets/artist/Image (5).png" }
+    { id: 1, name: "Cem Özdemir", respect: "500 Respect", image: "/src/assets/user/Image.png" },
+    { id: 2, name: "Zeynep Arslan", respect: "450 Respect", image: "/src/assets/user/Image (1).png" },
+    { id: 3, name: "Burak Ateş", respect: "400 Respect", image: "/src/assets/user/Image (2).png" },
+    { id: 4, name: "Elif Koç", respect: "380 Respect", image: "/src/assets/user/Image (3).png" },
+    { id: 5, name: "Murat Bulut", respect: "360 Respect", image: "/src/assets/user/Image (4).png" },
+    { id: 6, name: "Sinem Güler", respect: "340 Respect", image: "/src/assets/user/Image.png" },
+    { id: 7, name: "Emre Kılıç", respect: "320 Respect", image: "/src/assets/user/Image (1).png" },
+    { id: 8, name: "Gizem Şen", respect: "300 Respect", image: "/src/assets/user/Image (2).png" }
   ]
 
   return (
     <div className="recent-supporters">
-      <h3 className="section-title">Recent Supporters</h3>
+      <h3 className="section-title">Son Destekleyenler</h3>
       
       <div className="recent-supporters-grid">
         {recentSupporters.map((supporter) => (

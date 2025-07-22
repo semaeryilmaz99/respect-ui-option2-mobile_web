@@ -6,15 +6,15 @@ const RealTimeChat = () => {
   const chatMessages = [
     {
       id: 1,
-      sender: "Ethan Harper",
-      message: "Olivia, your new single is amazing! Keep up the great work.",
-      avatar: "/src/assets/artist/Image (1).png",
+      sender: "Ahmet Demir",
+      message: "Sezen Aksu, yeni şarkın harika! Böyle devam et.",
+      avatar: "/src/assets/user/Image.png",
       isOwn: false
     },
     {
       id: 2,
-      sender: "Olivia Carter",
-      message: "Thank you so much, Ethan! I appreciate your support.",
+      sender: "Sezen Aksu",
+      message: "Çok teşekkür ederim Ahmet! Desteğin benim için çok değerli.",
       avatar: "/src/assets/artist/Image.png",
       isOwn: true
     }
@@ -27,7 +27,7 @@ const RealTimeChat = () => {
   return (
     <div className={`real-time-chat ${isOpen ? 'open' : 'closed'}`}>
       <h3 className="section-title chat-toggle" onClick={toggleChat}>
-        Real-Time Chat
+        Canlı Sohbet
         <span className={`toggle-icon ${isOpen ? 'open' : 'closed'}`}>
           {isOpen ? '▼' : '▲'}
         </span>
@@ -51,14 +51,14 @@ const RealTimeChat = () => {
         
         <div className="chat-input-container">
           <div className="chat-input-avatar">
-            <img src="/src/assets/artist/Image (2).png" alt="Your avatar" />
+            <img src="/src/assets/artist/Image (2).png" alt="Senin avatarın" />
           </div>
           <input 
             type="text" 
-            placeholder="Type a message..."
+            placeholder="Mesajını yaz..."
             className="chat-input"
           />
-          <button className="send-button">Send</button>
+          <button className="send-button">Gönder</button>
         </div>
       </div>
     </div>

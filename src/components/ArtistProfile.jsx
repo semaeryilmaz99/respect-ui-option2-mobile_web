@@ -4,19 +4,19 @@ const ArtistProfile = () => {
   return (
     <div className="artist-profile">
       <div className="artist-profile-image">
-        <img src="/src/assets/artist/Image.png" alt="Olivia Carter" />
+        <img src="/src/assets/artist/Image.png" alt="Sezen Aksu" />
       </div>
       
       <div className="artist-info">
-        <h2 className="artist-name">Olivia Carter</h2>
+        <h2 className="artist-name">Sezen Aksu</h2>
         <p className="artist-respect">1,345 Respect</p>
         
         <p className="artist-description">
-          Olivia Carter is a rising pop star known for her catchy tunes and heartfelt lyrics. She has captivated audiences worldwide with her unique voice and relatable songs.
+          Sezen Aksu, Türk pop müziğinin efsanevi sanatçısıdır. Etkileyici sesi ve duygusal şarkılarıyla milyonlarca insanın kalbine dokunmuş, Türk müziğinin vazgeçilmez isimlerinden biri olmuştur.
         </p>
         
         <button className="send-respect-button">
-          Send Respect
+          Respect Gönder
         </button>
       </div>
     </div>

@@ -374,8 +374,17 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 24px 16px;
   text-align: center;
+}
+
+.artist-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .artist-profile-image {
@@ -398,12 +407,14 @@ html {
   font-weight: 600;
   color: #1b262e;
   margin: 0 0 4px 0;
+  text-align: center;
 }
 
 .artist-respect {
   font-size: 14px;
   color: #666;
   margin: 0 0 16px 0;
+  text-align: center;
 }
 
 .artist-description {
@@ -412,6 +423,7 @@ html {
   color: #1b262e;
   margin: 0 0 20px 0;
   max-width: 280px;
+  text-align: center;
 }
 
 .send-respect-button {
@@ -424,6 +436,7 @@ html {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  align-self: center;
 }
 
 .send-respect-button:hover {
@@ -437,6 +450,7 @@ html {
   color: #1b262e;
   margin: 0 0 16px 0;
   padding: 0 16px;
+  text-align: center;
 }
 
 .real-time-chat .section-title {
