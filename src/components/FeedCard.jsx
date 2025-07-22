@@ -4,23 +4,23 @@ const FeedCard = ({ type, title, buttonText, profileImage }) => {
   const getCardLabel = (type) => {
     switch (type) {
       case 'respect-activity':
-        return 'Respect Activity Card'
+        return 'Respect Activity'
       case 'chat-reply':
-        return 'Chat Reply Card'
+        return 'Chat Reply'
       case 'new-release':
-        return 'New Release Card'
+        return 'New Release'
       case 'followed-respect':
-        return 'Followed Respect Card'
+        return 'Followed Respect'
       case 'followed-new-song':
-        return 'Followed New Song Card'
+        return 'Followed New Song'
       case 'followed-chat':
-        return 'Followed Chat Card'
+        return 'Followed Chat'
       case 'trending-song':
-        return 'Trending Song Card'
+        return 'Trending Song'
       case 'trending-artist':
-        return 'Trending Artist Card'
+        return 'Trending Artist'
       case 'respect-notification':
-        return 'Respect Notification Card'
+        return 'Respect Notification'
       default:
         return 'Activity Card'
     }

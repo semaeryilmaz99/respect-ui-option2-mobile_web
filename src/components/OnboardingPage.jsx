@@ -9,30 +9,30 @@ const OnboardingPage = () => {
       title: "Sevdiğiniz Sanatçıları Destekleyin",
       subtitle: "Onların koruyucu melekleri olun.",
       icon: "💛",
-      buttonText: "Next"
+      buttonText: "İleri"
     },
     {
       id: 1,
       title: "Etkinizi Görün",
       subtitle: "Hayatınıza dokunan sanatçıların müziğine ne kadar dokunduğunuzu görün.",
       showArtistList: true,
-      buttonText: "Next"
+      buttonText: "İleri"
     },
     {
       id: 2,
       title: "Topluluğun Bir Parçası Olun",
       subtitle: "Aynı müziği dinlediğiniz, aynı duyguları paylaştığınız insanlarla ve sanatçılarla iletişim kurun, keşfedin, güçlerinizi birleştirin ve müziğin değerini koruyan kahramanlar olun.",
       showCommunityImage: true,
-      buttonText: "Get Started"
+      buttonText: "Başlayalım"
     }
   ]
 
   const artists = [
-    { id: 1, name: "Liam Carter", respect: "120 Respect", avatar: "/src/assets/artist/Image (1).png" },
-    { id: 2, name: "Olivia Bennett", respect: "110 Respect", avatar: "/src/assets/artist/Image (2).png" },
-    { id: 3, name: "Noah Thompson", respect: "100 Respect", avatar: "/src/assets/artist/Image (3).png" },
-    { id: 4, name: "Ava Harper", respect: "90 Respect", avatar: "/src/assets/artist/Image (4).png" },
-    { id: 5, name: "Ethan Parker", respect: "80 Respect", avatar: "/src/assets/artist/Image (5).png" }
+    { id: 1, name: "Ahmet Kaya", respect: "120 Respect", avatar: "/src/assets/artist/Image (1).png" },
+    { id: 2, name: "Sezen Aksu", respect: "110 Respect", avatar: "/src/assets/artist/Image (2).png" },
+    { id: 3, name: "Barış Manço", respect: "100 Respect", avatar: "/src/assets/artist/Image (3).png" },
+    { id: 4, name: "Ajda Pekkan", respect: "90 Respect", avatar: "/src/assets/artist/Image (4).png" },
+    { id: 5, name: "Cem Karaca", respect: "80 Respect", avatar: "/src/assets/artist/Image (5).png" }
   ]
 
   const handleNext = () => {

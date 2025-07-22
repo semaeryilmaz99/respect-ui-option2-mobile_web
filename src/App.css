@@ -196,13 +196,12 @@ body {
   padding: 8px 16px;
   font-size: 12px;
   color: #666;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #f0f0f0;
+  background-color: #ffffff;
   text-align: center;
 }
 
 .card-content {
-  padding: 20px 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1781,8 +1780,8 @@ html {
 /* Help Button */
 .help-button {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 47px;
+  right: 60px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -1849,7 +1848,12 @@ html {
   background-color: #ffffff;
   border-radius: 20px;
   padding: 20px 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    0 3px 12px rgba(0, 0, 0, 0.1),
+    0 -2px 8px rgba(0, 0, 0, 0.05),
+    2px 0 8px rgba(0, 0, 0, 0.05),
+    -2px 0 8px rgba(0, 0, 0, 0.05);
   border: 1px solid #f0f0f0;
 }
 
@@ -1916,9 +1920,14 @@ html {
 .community-image {
   width: 380px;
   height: 380px;
-  border-radius: 24px;
+  border-radius: 45px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    0 3px 12px rgba(0, 0, 0, 0.1),
+    0 -2px 8px rgba(0, 0, 0, 0.05),
+    2px 0 8px rgba(0, 0, 0, 0.05),
+    -2px 0 8px rgba(0, 0, 0, 0.05);
 }
 
 .community-image img {
@@ -2025,6 +2034,12 @@ html {
   .community-image {
     width: 320px;
     height: 320px;
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.15),
+      0 3px 12px rgba(0, 0, 0, 0.1),
+      0 -2px 8px rgba(0, 0, 0, 0.05),
+      2px 0 8px rgba(0, 0, 0, 0.05),
+      -2px 0 8px rgba(0, 0, 0, 0.05);
   }
   
   .artist-list-card {
