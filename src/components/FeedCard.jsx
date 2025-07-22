@@ -15,6 +15,12 @@ const FeedCard = ({ type, title, buttonText, profileImage }) => {
         return 'Followed New Song Card'
       case 'followed-chat':
         return 'Followed Chat Card'
+      case 'trending-song':
+        return 'Trending Song Card'
+      case 'trending-artist':
+        return 'Trending Artist Card'
+      case 'respect-notification':
+        return 'Respect Notification Card'
       default:
         return 'Activity Card'
     }
@@ -28,22 +34,22 @@ const FeedCard = ({ type, title, buttonText, profileImage }) => {
       
       <div className="card-content">
         <div className="card-top">
-        <div className="card-text">
-          <h3 className="card-title">{title}</h3>
+          <div className="card-text">
+            <h3 className="card-title">{title}</h3>
+          </div>
+          
+          <div className="profile-image-container">
+            <img 
+              src={profileImage} 
+              alt="Profile" 
+              className="profile-image"
+            />
+          </div>
         </div>
         
-        <div className="profile-image-container">
-          <img 
-            src={profileImage} 
-            alt="Profile" 
-            className="profile-image"
-          />
-        </div>
-      </div>
-      
-      <button className="card-button">
-        {buttonText}
-      </button>
+        <button className="card-button">
+          {buttonText}
+        </button>
       </div>
     </div>
   )
