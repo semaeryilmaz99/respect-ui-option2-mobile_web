@@ -151,7 +151,6 @@ body {
 .feed-card {
   background-color: #ffffff;
   border-radius: 40px;
-  overflow: hidden;
   box-shadow: 0 2px 12px rgba(27, 38, 46, 0.08);
 }
 
@@ -175,6 +174,12 @@ body {
   border-top: 2px solid #ffe8a0;
   border-bottom: 2px solid #ffe8a0;
   border-radius: 40px;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    0 -8px 16px rgba(0, 0, 0, 0.1),
+    8px 0 16px rgba(0, 0, 0, 0.1),
+    -8px 0 16px rgba(0, 0, 0, 0.1),
+    0 0 24px rgba(0, 0, 0, 0.15);
 }
 
 .card-top {
@@ -217,7 +222,7 @@ body {
   width: 100%;
   padding: 12px 16px;
   border: none;
-  background-color: #ffffff;
+  background-color: #fbdb3a;
   color: #1b262e;
   font-size: 14px;
   font-weight: 500;
@@ -229,12 +234,12 @@ body {
 }
 
 .card-button:hover {
-  background-color: #f8f9fa;
+  background-color: #ffecc7;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .card-button:active {
-  background-color: #f0f0f0;
+  background-color: #ffe487;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -254,7 +259,12 @@ body {
   .card-content {
     padding: 16px 12px;
     min-height: 95px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 
+      0 6px 12px rgba(0, 0, 0, 0.25),
+      0 -6px 12px rgba(0, 0, 0, 0.25),
+      6px 0 12px rgba(0, 0, 0, 0.25),
+      -6px 0 12px rgba(0, 0, 0, 0.25),
+      0 0 18px rgba(0, 0, 0, 0.18);
   }
   
   .card-title {
