@@ -364,7 +364,7 @@ html {
 
 .artist-content {
   flex: 1;
-  padding-bottom: 32px;
+  padding-bottom: 320px;
 }
 
 /* Artist Header removed - using main Header component instead */
@@ -437,6 +437,44 @@ html {
   color: #1b262e;
   margin: 0 0 16px 0;
   padding: 0 16px;
+}
+
+.real-time-chat .section-title {
+  padding: 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.chat-toggle {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.chat-toggle:hover {
+  background-color: #f8f9fa;
+}
+
+.toggle-icon {
+  font-size: 12px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fbdb3a;
+  font-weight: bold;
+}
+
+.toggle-icon.open {
+  transform: rotate(0deg);
+}
+
+.toggle-icon.closed {
+  transform: rotate(180deg);
 }
 
 /* Top Supporters Styles */
@@ -545,12 +583,44 @@ html {
 
 /* Real-Time Chat Styles */
 .real-time-chat {
-  margin-bottom: 32px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 2px solid #fbdb3a;
+  border-bottom: none;
+  border-radius: 40px 40px 0 0;
+  padding: 16px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.real-time-chat.closed {
+  max-height: 60px;
+  overflow: hidden;
+}
+
+.chat-content {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.real-time-chat.closed .chat-content {
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .chat-messages {
-  padding: 0 16px;
-  margin-bottom: 20px;
+  padding: 0;
+  margin-bottom: 16px;
+  max-height: 150px;
+  overflow-y: auto;
 }
 
 .chat-message {
@@ -602,7 +672,10 @@ html {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 16px;
+  padding: 0;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+  margin-top: 8px;
 }
 
 .chat-input-avatar {
