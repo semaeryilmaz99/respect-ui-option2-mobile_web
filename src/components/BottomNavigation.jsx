@@ -1,22 +1,28 @@
 import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const BottomNavigation = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const navItems = [
+    { icon: '🏠', label: 'Home', path: '/feed' },
+    { icon: '🔍', label: 'Search', path: '/search' },
+    { icon: '👤', label: 'Profile', path: '/profile' }
+  ]
+
   return (
     <nav className="bottom-navigation">
-      <button className="nav-item">
-        <div className="nav-icon">🏠</div>
-        <span className="nav-label">Home</span>
-      </button>
-      
-      <button className="nav-item">
-        <div className="nav-icon">🔍</div>
-        <span className="nav-label">Search</span>
-      </button>
-      
-      <button className="nav-item active">
-        <div className="nav-icon">👤</div>
-        <span className="nav-label">Profile</span>
-      </button>
+      {navItems.map((item) => (
+        <button 
+          key={item.path}
+          className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
+          onClick={() => navigate(item.path)}
+        >
+          <div className="nav-icon">{item.icon}</div>
+          <span className="nav-label">{item.label}</span>
+        </button>
+      ))}
     </nav>
   )
 }

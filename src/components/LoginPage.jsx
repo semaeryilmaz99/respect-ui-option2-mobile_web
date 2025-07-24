@@ -1,18 +1,64 @@
 import React, { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+// import { authService } from '../api' // Commented out for demo mode
 
 const LoginPage = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault()
-    // Login logic will be implemented later
-    console.log('Login attempt:', { email, password })
+    
+    if (!email || !password) {
+      setError('Email ve şifre gereklidir')
+      return
+    }
+
+    // Demo mode - directly navigate to feed
+    setLoading(true)
+    setError('')
+    
+    // Simulate loading for better UX
+    setTimeout(() => {
+      setLoading(false)
+      navigate('/feed')
+    }, 500)
+
+    /* API version - uncomment when backend is ready
+    try {
+      setLoading(true)
+      setError('')
+      
+      await authService.login({ email, password })
+      
+      // Navigate to feed page after successful login
+      navigate('/feed')
+    } catch (err) {
+      setError(err.message || 'Giriş yapılırken bir hata oluştu')
+    } finally {
+      setLoading(false)
+    }
+    */
   }
 
   const handleSpotifyLogin = () => {
+    // Demo mode - directly navigate to feed
+    setLoading(true)
+    setError('')
+    
+    // Simulate loading for better UX
+    setTimeout(() => {
+      setLoading(false)
+      navigate('/feed')
+    }, 800)
+    
+    /* Spotify OAuth version - uncomment when backend is ready
     // Spotify OAuth logic will be implemented later
     console.log('Spotify login clicked')
+    */
   }
 
   return (
@@ -25,9 +71,9 @@ const LoginPage = () => {
           </p>
         </div>
 
-        <button onClick={handleSpotifyLogin} className="spotify-login-button">
+        <button onClick={handleSpotifyLogin} className="spotify-login-button" disabled={loading}>
           <img src="/src/assets/spotify.jpg" alt="Spotify" className="spotify-icon" />
-          Spotify ile Giriş Yap
+          {loading ? 'Giriş yapılıyor...' : 'Spotify ile Giriş Yap'}
         </button>
 
         <div className="divider">
@@ -35,6 +81,12 @@ const LoginPage = () => {
         </div>
 
         <form className="login-form" onSubmit={handleLogin}>
+          {error && (
+            <div className="error-message" style={{ color: 'red', marginBottom: '1rem', textAlign: 'center' }}>
+              {error}
+            </div>
+          )}
+          
           <div className="input-group">
             <label htmlFor="email" className="input-label">Email</label>
             <input
@@ -45,6 +97,7 @@ const LoginPage = () => {
               placeholder="email@example.com"
               className="login-input"
               required
+              disabled={loading}
             />
           </div>
 
@@ -58,22 +111,23 @@ const LoginPage = () => {
               placeholder="Şifrenizi girin"
               className="login-input"
               required
+              disabled={loading}
             />
           </div>
 
-          <button type="submit" className="login-button">
-            Giriş Yap
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? 'Giriş yapılıyor...' : 'Giriş Yap'}
           </button>
         </form>
 
         <div className="login-footer">
-          <a href="#forgot" className="forgot-link">
+          <Link to="/forgot-password" className="forgot-link">
             Şifremi Unuttum
-          </a>
+          </Link>
           
           <p className="signup-text">
             Hesabınız yok mu? 
-            <a href="#signup" className="signup-link"> Kayıt Ol</a>
+            <Link to="/signup" className="signup-link"> Kayıt Ol</Link>
           </p>
         </div>
       </div>

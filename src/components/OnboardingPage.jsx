@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const OnboardingPage = () => {
+  const navigate = useNavigate()
   const [currentStep, setCurrentStep] = useState(0)
 
   const steps = [
@@ -39,8 +41,8 @@ const OnboardingPage = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1)
     } else {
-      // Navigate to main app
-      console.log('Onboarding completed!')
+      // Navigate to login page when onboarding is completed
+      navigate('/login')
     }
   }
 

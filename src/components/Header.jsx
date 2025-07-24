@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
+  const navigate = useNavigate()
   return (
     <header className="header">
       <div className="header-content">
@@ -12,9 +14,9 @@ const Header = () => {
         
         <h1 className="app-title">Respect Müzik</h1>
         
-        <div className="user-avatar">
+        <button className="user-avatar" onClick={() => navigate('/profile')}>
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="User" />
-        </div>
+        </button>
       </div>
       
       <div className="search-container">

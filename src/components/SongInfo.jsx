@@ -1,6 +1,23 @@
 import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const SongInfo = () => {
+  const navigate = useNavigate()
+  const { id: songId } = useParams()
+
+  const handleSendRespect = () => {
+    // Navigate to send respect page with song information as state
+    navigate('/send-respect', {
+      state: {
+        songId: songId || '1',
+        songTitle: 'Gidiyorum',
+        artistName: 'Sezen Aksu',
+        songCover: '/src/assets/song/Image.png',
+        currentRespect: '1,247'
+      }
+    })
+  }
+
   return (
     <div className="song-info">
       <div className="song-album-cover">
@@ -18,7 +35,7 @@ const SongInfo = () => {
           <button className="play-spotify-button">
             Spotify'da Dinle
           </button>
-          <button className="send-respect-button">
+          <button className="send-respect-button" onClick={handleSendRespect}>
             Respect Gönder
           </button>
         </div>

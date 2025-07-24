@@ -1,25 +1,77 @@
 import React, { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+// import { authService } from '../api' // Commented out for demo mode
 
 const SignupPage = () => {
+  const navigate = useNavigate()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault()
-    // Signup logic will be implemented later
-    if (password !== confirmPassword) {
-      alert('Şifreler eşleşmiyor')
+    
+    if (!firstName || !lastName || !email || !password) {
+      setError('Tüm alanlar gereklidir')
       return
     }
-    console.log('Signup attempt:', { firstName, lastName, email, password })
+    
+    if (password !== confirmPassword) {
+      setError('Şifreler eşleşmiyor')
+      return
+    }
+
+    // Demo mode - directly navigate to feed
+    setLoading(true)
+    setError('')
+    
+    // Simulate loading for better UX
+    setTimeout(() => {
+      setLoading(false)
+      navigate('/feed')
+    }, 700)
+
+    /* API version - uncomment when backend is ready
+    try {
+      setLoading(true)
+      setError('')
+      
+      await authService.signup({
+        firstName,
+        lastName,
+        email,
+        password
+      })
+      
+      // Navigate to feed page after successful signup
+      navigate('/feed')
+    } catch (err) {
+      setError(err.message || 'Kayıt olurken bir hata oluştu')
+    } finally {
+      setLoading(false)
+    }
+    */
   }
 
   const handleSpotifySignup = () => {
+    // Demo mode - directly navigate to feed
+    setLoading(true)
+    setError('')
+    
+    // Simulate loading for better UX
+    setTimeout(() => {
+      setLoading(false)
+      navigate('/feed')
+    }, 800)
+    
+    /* Spotify OAuth version - uncomment when backend is ready
     // Spotify OAuth logic will be implemented later
     console.log('Spotify signup clicked')
+    */
   }
 
   return (
@@ -32,9 +84,9 @@ const SignupPage = () => {
           </p>
         </div>
 
-        <button onClick={handleSpotifySignup} className="spotify-login-button">
+        <button onClick={handleSpotifySignup} className="spotify-login-button" disabled={loading}>
           <img src="/src/assets/spotify.jpg" alt="Spotify" className="spotify-icon" />
-          Spotify ile Kayıt Ol
+          {loading ? 'Kayıt olunuyor...' : 'Spotify ile Kayıt Ol'}
         </button>
 
         <div className="divider">
@@ -42,6 +94,12 @@ const SignupPage = () => {
         </div>
 
         <form className="login-form" onSubmit={handleSignup}>
+          {error && (
+            <div className="error-message" style={{ color: 'red', marginBottom: '1rem', textAlign: 'center' }}>
+              {error}
+            </div>
+          )}
+          
           <div className="input-group">
             <label htmlFor="firstName" className="input-label">Ad</label>
             <input
@@ -52,6 +110,7 @@ const SignupPage = () => {
               placeholder="Adınız"
               className="login-input"
               required
+              disabled={loading}
             />
           </div>
 
@@ -65,6 +124,7 @@ const SignupPage = () => {
               placeholder="Soyadınız"
               className="login-input"
               required
+              disabled={loading}
             />
           </div>
 
@@ -78,6 +138,7 @@ const SignupPage = () => {
               placeholder="email@example.com"
               className="login-input"
               required
+              disabled={loading}
             />
           </div>
 
@@ -91,6 +152,7 @@ const SignupPage = () => {
               placeholder="Şifrenizi girin"
               className="login-input"
               required
+              disabled={loading}
             />
           </div>
 
@@ -104,18 +166,19 @@ const SignupPage = () => {
               placeholder="Şifrenizi tekrar girin"
               className="login-input"
               required
+              disabled={loading}
             />
           </div>
 
-          <button type="submit" className="login-button">
-            Kayıt Ol
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? 'Kayıt olunuyor...' : 'Kayıt Ol'}
           </button>
         </form>
 
         <div className="login-footer">
           <p className="signup-text">
             Zaten hesabınız var mı? 
-            <a href="#login" className="signup-link"> Giriş Yap</a>
+            <Link to="/login" className="signup-link"> Giriş Yap</Link>
           </p>
         </div>
       </div>

@@ -859,8 +859,7 @@ html {
   border-radius: 12px;
   overflow: hidden;
   flex-shrink: 0;
-  margin-left: auto;
-  margin-right: -15px;
+  margin: 0 auto;
 }
 
 .song-album-cover img {
@@ -2085,4 +2084,160 @@ html {
     width: 280px;
     height: 280px;
   }
+}
+
+/* Back Button Styles - Respect Theme */
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f9dc38;
+  color: #1b262e;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(249, 220, 56, 0.2);
+  min-width: 80px;
+}
+
+.back-button:hover {
+  background-color: #f5d428;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(249, 220, 56, 0.3);
+}
+
+.back-button:active {
+  background-color: #ffe487;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(249, 220, 56, 0.2);
+}
+
+.back-icon {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.back-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Respect themed header with back button */
+.respect-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.respect-title {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1b262e;
+  margin: 0;
+}
+
+/* Page header with back button */
+.page-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(27, 38, 46, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.page-title {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1b262e;
+  margin: 0;
+}
+
+/* Compact back button variant */
+.back-button.compact {
+  padding: 6px 12px;
+  font-size: 12px;
+  min-width: 60px;
+  border-radius: 16px;
+}
+
+.back-button.compact .back-icon {
+  font-size: 14px;
+}
+
+.back-button.compact .back-text {
+  font-size: 12px;
+}
+
+/* Secondary back button variant */
+.back-button.secondary {
+  background-color: #f5f5f5;
+  color: #1b262e;
+  box-shadow: 0 2px 4px rgba(27, 38, 46, 0.1);
+}
+
+.back-button.secondary:hover {
+  background-color: #e8e8e8;
+  box-shadow: 0 4px 8px rgba(27, 38, 46, 0.15);
+}
+
+.back-button.secondary:active {
+  background-color: #ddd;
+}
+
+/* Clickable supporter items */
+.supporter-item.clickable,
+.recent-supporter-item.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.supporter-item.clickable:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(27, 38, 46, 0.1);
+}
+
+.supporter-item.clickable:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(27, 38, 46, 0.1);
+}
+
+.recent-supporter-item.clickable:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(27, 38, 46, 0.1);
+  border-radius: 12px;
+}
+
+.recent-supporter-item.clickable:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(27, 38, 46, 0.1);
+}
+
+/* Supporter hover effects */
+.supporter-item.clickable:hover .supporter-name {
+  color: #f9dc38;
+}
+
+.recent-supporter-item.clickable:hover .recent-supporter-name {
+  color: #f9dc38;
 }

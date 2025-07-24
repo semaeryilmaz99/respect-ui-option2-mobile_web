@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const RecentSupporters = () => {
+  const navigate = useNavigate()
   const recentSupporters = [
     { id: 1, name: "Cem Özdemir", respect: "500 Respect", image: "/src/assets/user/Image.png" },
     { id: 2, name: "Zeynep Arslan", respect: "450 Respect", image: "/src/assets/user/Image (1).png" },
@@ -12,13 +14,21 @@ const RecentSupporters = () => {
     { id: 8, name: "Gizem Şen", respect: "300 Respect", image: "/src/assets/user/Image (2).png" }
   ]
 
+  const handleSupporterClick = (supporterId) => {
+    navigate(`/user/${supporterId}`)
+  }
+
   return (
     <div className="recent-supporters">
       <h3 className="section-title">Son Destekleyenler</h3>
       
       <div className="recent-supporters-grid">
         {recentSupporters.map((supporter) => (
-          <div key={supporter.id} className="recent-supporter-item">
+          <div 
+            key={supporter.id} 
+            className="recent-supporter-item clickable"
+            onClick={() => handleSupporterClick(supporter.id)}
+          >
             <div className="recent-supporter-image">
               <img src={supporter.image} alt={supporter.name} />
             </div>
