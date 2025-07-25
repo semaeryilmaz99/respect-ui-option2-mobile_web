@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { respectService } from '../api'
+import Header from './Header'
 import BackButton from './common/BackButton'
 
-const SendRespectPage = () => {
+const SendRespectPage = ({ onToggleSidebar }) => {
   const location = useLocation()
   const navigate = useNavigate()
   const [selectedAmount, setSelectedAmount] = useState(null)
@@ -61,6 +62,7 @@ const SendRespectPage = () => {
       <div className="respect-header">
         <BackButton />
       </div>
+      <Header onToggleSidebar={onToggleSidebar} />
 
       <div className="respect-content">
         <div className="song-info-section">

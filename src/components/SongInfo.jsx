@@ -1,34 +1,38 @@
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 
 const SongInfo = () => {
   const navigate = useNavigate()
   const { id: songId } = useParams()
+  const location = useLocation()
+
+  // Navigation state'inden şarkı bilgilerini al, yoksa varsayılan değerleri kullan
+  const songData = location.state || {
+    songId: songId || '1',
+    songTitle: 'Gidiyorum',
+    artistName: 'Sezen Aksu',
+    songCover: '/src/assets/song/Image.png',
+    currentRespect: '1,247'
+  }
 
   const handleSendRespect = () => {
     // Navigate to send respect page with song information as state
     navigate('/send-respect', {
-      state: {
-        songId: songId || '1',
-        songTitle: 'Gidiyorum',
-        artistName: 'Sezen Aksu',
-        songCover: '/src/assets/song/Image.png',
-        currentRespect: '1,247'
-      }
+      state: songData
     })
   }
 
   return (
     <div className="song-info">
       <div className="song-album-cover">
-        <img src="/src/assets/song/Image.png" alt="Şarkı Kapağı" />
+        <img src={songData.songCover} alt="Şarkı Kapağı" />
       </div>
       
       <div className="song-details">
         <div className="song-title-section">
-          <h2 className="song-title">Gidiyorum</h2>
-          <h3 className="song-subtitle">Sezen Aksu</h3>
-          <p className="song-respect">1,247 Respect</p>
+          <h2 className="song-title">{songData.songTitle}</h2>
+          <h3 className="song-subtitle">{songData.artistName}</h3>
+          <p className="song-respect">{songData.currentRespect} Respect</p>
         </div>
         
         <div className="song-buttons">

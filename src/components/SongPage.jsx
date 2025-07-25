@@ -7,13 +7,13 @@ import SongRealTimeChat from './SongRealTimeChat'
 import MoreByArtist from './MoreByArtist'
 import BackButton from './common/BackButton'
 
-const SongPage = () => {
+const SongPage = ({ onToggleSidebar }) => {
   return (
     <div className="song-page">
       <div className="page-header">
         <BackButton to="/feed" />
       </div>
-      <Header />
+      <Header onToggleSidebar={onToggleSidebar} />
       <div className="song-content">
         <SongInfo />
         <SongTopSupporters />

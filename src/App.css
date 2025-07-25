@@ -12,6 +12,31 @@ body {
   line-height: 1.5;
 }
 
+/* ===========================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   =========================================== */
+
+/* Mobile-first CSS (default styles above) */
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  /* Tablet-specific styles will go here */
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  /* Desktop-specific styles will go here */
+  
+  body {
+    font-size: 16px; /* Larger font for desktop */
+  }
+  
+  .app {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
 .app {
   min-height: 100vh;
   max-width: 100vw;
@@ -2240,4 +2265,196 @@ html {
 
 .recent-supporter-item.clickable:hover .recent-supporter-name {
   color: #f9dc38;
+}
+
+/* ===========================================
+   SIDEBAR STYLES
+   =========================================== */
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Sidebar Container */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(135deg, #f9dc38 0%, #ffffff 100%);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-text {
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.sidebar-close {
+  background: none;
+  border: none;
+  color: #1b262e;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar Content */
+.sidebar-content {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 20px;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: #1b262e;
+  font-size: 18px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.sidebar-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.sidebar-nav-item:active {
+  transform: translateX(2px);
+}
+
+.nav-item-label {
+  font-weight: 500;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-name {
+  color: #1b262e;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 2px 0;
+}
+
+.user-respect {
+  color: #1b262e;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 260px;
+  }
+  
+  .sidebar-header {
+    padding: 16px;
+  }
+  
+  .sidebar-nav {
+    padding: 0 16px;
+  }
+  
+  .sidebar-footer {
+    padding: 16px;
+  }
+}
+
+/* Dark theme support for sidebar */
+@media (prefers-color-scheme: dark) {
+  .sidebar {
+    background: linear-gradient(135deg, #ffffff 0%, #f9dc38 100%);
+  }
 }

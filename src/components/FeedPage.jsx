@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Header from './Header'
 import FeedCard from './FeedCard'
 
-const FeedPage = () => {
+const FeedPage = ({ onToggleSidebar }) => {
   const [activeTab, setActiveTab] = useState('community')
 
   // Topluluk sekmesi verileri
@@ -77,7 +77,7 @@ const FeedPage = () => {
 
   return (
     <div className="feed-page">
-      <Header />
+      <Header onToggleSidebar={onToggleSidebar} />
       
       {/* Tab Navigation */}
       <div className="feed-tabs">

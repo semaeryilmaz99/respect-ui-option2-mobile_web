@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SongsList = () => {
+  const navigate = useNavigate()
+  
   const songs = [
     {
       id: 1,
@@ -22,13 +25,31 @@ const SongsList = () => {
     }
   ]
 
+  const handleSongClick = (song) => {
+    // Şarkıya tıklandığında song sayfasına yönlendir
+    navigate(`/song/${song.id}`, {
+      state: {
+        songId: song.id,
+        songTitle: song.title,
+        artistName: song.artist,
+        songCover: song.cover,
+        currentRespect: '1,247' // Örnek respect sayısı
+      }
+    })
+  }
+
   return (
     <div className="songs-list">
       <h3 className="section-title">Şarkılar</h3>
       
       <div className="songs-container">
         {songs.map((song) => (
-          <div key={song.id} className="song-item">
+          <div 
+            key={song.id} 
+            className="song-item"
+            onClick={() => handleSongClick(song)}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="song-cover">
               <img src={song.cover} alt={`${song.title} kapağı`} />
             </div>

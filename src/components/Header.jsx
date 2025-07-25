@@ -1,12 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({ onToggleSidebar }) => {
   const navigate = useNavigate()
   return (
     <header className="header">
       <div className="header-content">
-        <button className="menu-button">
+        <button className="menu-button" onClick={onToggleSidebar}>
           <span className="hamburger-line"></span>
           <span className="hamburger-line"></span>
           <span className="hamburger-line"></span>

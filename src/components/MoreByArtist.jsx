@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const MoreByArtist = () => {
+  const navigate = useNavigate()
+  
   const songs = [
     {
       id: 1,
@@ -28,13 +31,31 @@ const MoreByArtist = () => {
     }
   ]
 
+  const handleSongClick = (song) => {
+    // Şarkıya tıklandığında o şarkının song sayfasına yönlendir
+    navigate(`/song/${song.id}`, {
+      state: {
+        songId: song.id,
+        songTitle: song.title,
+        artistName: song.artist,
+        songCover: song.cover,
+        currentRespect: '1,247' // Örnek respect sayısı
+      }
+    })
+  }
+
   return (
     <div className="more-by-artist">
       <h3 className="section-title">Sanatçının Diğer Şarkıları</h3>
       
       <div className="artist-songs-container">
         {songs.map((song) => (
-          <div key={song.id} className="artist-song-item">
+          <div 
+            key={song.id} 
+            className="artist-song-item"
+            onClick={() => handleSongClick(song)}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="artist-song-cover">
               <img src={song.cover} alt={`${song.title} kapağı`} />
             </div>
