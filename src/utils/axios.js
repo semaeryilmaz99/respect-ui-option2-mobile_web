@@ -78,7 +78,7 @@ api.interceptors.response.use(
           localStorage.removeItem(config.STORAGE_KEYS.USER)
           
           if (window.location.pathname !== '/login') {
-            window.location.href = '/login'
+          window.location.href = '/login'
           }
         }
     }

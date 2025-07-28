@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
+import './styles/header-responsive.css'
+import './styles/feed-desktop.css'
 
 // Context Provider
 import { AppProvider } from './context/AppContext'
@@ -24,15 +26,15 @@ function App() {
   return (
     <ErrorBoundary>
       <AppProvider>
-        <Router>
-          <div className="App">
-            {/* Sidebar */}
+    <Router>
+      <div className="App">
+        {/* Sidebar */}
             <Sidebar />
             
             {/* Toast Container */}
             <ToastContainer />
-            
-            <Routes>
+        
+        <Routes>
             {/* Public routes - Only accessible when not authenticated */}
             <Route path="/onboarding" element={
               <ProtectedRoute requireAuth={false}>
@@ -91,13 +93,13 @@ function App() {
                 <UserPage />
               </ProtectedRoute>
             } />
-            
-            {/* Default redirects */}
-            <Route path="/" element={<Navigate to="/onboarding" replace />} />
-            <Route path="*" element={<Navigate to="/onboarding" replace />} />
-          </Routes>
-        </div>
-      </Router>
+          
+          {/* Default redirects */}
+          <Route path="/" element={<Navigate to="/onboarding" replace />} />
+          <Route path="*" element={<Navigate to="/onboarding" replace />} />
+        </Routes>
+      </div>
+    </Router>
     </AppProvider>
   </ErrorBoundary>
   )
