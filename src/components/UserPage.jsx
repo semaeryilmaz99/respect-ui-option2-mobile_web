@@ -6,13 +6,13 @@ import UserTopArtists from './UserTopArtists'
 import UserTopSongs from './UserTopSongs'
 import BackButton from './common/BackButton'
 
-const UserPage = ({ onToggleSidebar }) => {
+const UserPage = () => {
   return (
     <div className="user-page">
       <div className="page-header">
         <BackButton to="/feed" />
       </div>
-      <Header onToggleSidebar={onToggleSidebar} />
+      <Header />
       <div className="user-content">
         <UserProfile />
         <UserStats />

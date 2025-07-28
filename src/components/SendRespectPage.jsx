@@ -4,7 +4,7 @@ import { respectService } from '../api'
 import Header from './Header'
 import BackButton from './common/BackButton'
 
-const SendRespectPage = ({ onToggleSidebar }) => {
+const SendRespectPage = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const [selectedAmount, setSelectedAmount] = useState(null)
@@ -59,10 +59,16 @@ const SendRespectPage = ({ onToggleSidebar }) => {
 
   return (
     <div className="send-respect-page">
-      <div className="respect-header">
+      <div className="respect-header" style={{ 
+        display: 'flex', 
+        justifyContent: 'flex-start', 
+        alignItems: 'center',
+        padding: '16px 20px',
+        background: 'transparent'
+      }}>
         <BackButton />
       </div>
-      <Header onToggleSidebar={onToggleSidebar} />
+      <Header />
 
       <div className="respect-content">
         <div className="song-info-section">

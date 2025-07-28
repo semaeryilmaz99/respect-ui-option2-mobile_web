@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { useAppContext } from '../context/AppContext'
+import config from '../config/environment'
 // import { authService } from '../api' // Commented out for demo mode
 
 const LoginPage = () => {
   const navigate = useNavigate()
+  const { actions } = useAppContext()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -12,20 +15,41 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     
-    if (!email || !password) {
-      setError('Email ve şifre gereklidir')
-      return
-    }
-
-    // Demo mode - directly navigate to feed
+    // Demo mode - create mock user and login directly
     setLoading(true)
     setError('')
     
     // Simulate loading for better UX
     setTimeout(() => {
+      // Create mock user data
+      const mockUser = {
+        id: '1',
+        name: 'Demo Kullanıcı',
+        email: email || 'demo@respect.com',
+        avatar: '/assets/user/Image.png',
+        respectBalance: 1000,
+        isVerified: true,
+        joinDate: new Date().toISOString(),
+        stats: {
+          totalRespectSent: 2500,
+          totalRespectReceived: 1800,
+          favoriteArtists: 12,
+          supportedSongs: 45
+        }
+      }
+      
+      const mockToken = 'demo-jwt-token-' + Date.now()
+      
+      // Set user in context (this makes isAuthenticated = true)
+      actions.setUser({ ...mockUser, token: mockToken })
+      
+      // Store in localStorage for persistence
+      localStorage.setItem(config.STORAGE_KEYS.AUTH_TOKEN, mockToken)
+      localStorage.setItem(config.STORAGE_KEYS.USER, JSON.stringify(mockUser))
+      
       setLoading(false)
       navigate('/feed')
-    }, 500)
+    }, 800) // Slightly longer for better UX
 
     /* API version - uncomment when backend is ready
     try {
@@ -45,9 +69,40 @@ const LoginPage = () => {
   }
 
   const handleSpotifyLogin = () => {
-    // Demo mode - directly navigate to feed
+    // Demo mode - create Spotify-style mock user
     setLoading(true)
     setError('')
+    
+    setTimeout(() => {
+      const mockSpotifyUser = {
+        id: 'spotify-1',
+        name: 'Spotify Kullanıcı',
+        email: 'spotify@respect.com',
+        avatar: '/assets/spotify.jpg',
+        respectBalance: 500,
+        isVerified: true,
+        spotifyConnected: true,
+        joinDate: new Date().toISOString(),
+        stats: {
+          totalRespectSent: 1200,
+          totalRespectReceived: 900,
+          favoriteArtists: 8,
+          supportedSongs: 28
+        }
+      }
+      
+      const mockToken = 'spotify-jwt-token-' + Date.now()
+      
+      // Set user in context
+      actions.setUser({ ...mockSpotifyUser, token: mockToken })
+      
+      // Store in localStorage
+      localStorage.setItem(config.STORAGE_KEYS.AUTH_TOKEN, mockToken)
+      localStorage.setItem(config.STORAGE_KEYS.USER, JSON.stringify(mockSpotifyUser))
+      
+      setLoading(false)
+      navigate('/feed')
+    }, 1000)
     
     // Simulate loading for better UX
     setTimeout(() => {

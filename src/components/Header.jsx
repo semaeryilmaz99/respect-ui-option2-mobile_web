@@ -1,12 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useUI } from '../context/AppContext'
 
-const Header = ({ onToggleSidebar }) => {
+const Header = () => {
   const navigate = useNavigate()
+  const { toggleSidebar } = useUI()
   return (
     <header className="header">
       <div className="header-content">
-        <button className="menu-button" onClick={onToggleSidebar}>
+        <button className="menu-button" onClick={toggleSidebar}>
           <span className="hamburger-line"></span>
           <span className="hamburger-line"></span>
           <span className="hamburger-line"></span>

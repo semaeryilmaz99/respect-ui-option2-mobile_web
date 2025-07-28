@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
+
+// Context Provider
+import { AppProvider } from './context/AppContext'
 
 // Import all page components
 import OnboardingPage from './components/OnboardingPage'
@@ -12,46 +15,91 @@ import SongPage from './components/SongPage'
 import SendRespectPage from './components/SendRespectPage'
 import UserPage from './components/UserPage'
 import Sidebar from './components/Sidebar'
+import ProtectedRoute from './components/ProtectedRoute'
+import ErrorBoundary from './components/ErrorBoundary'
+import ToastContainer from './components/Toast'
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen)
-  }
-
-  const closeSidebar = () => {
-    setSidebarOpen(false)
-  }
 
   return (
-    <Router>
-      <div className="App">
-        {/* Sidebar */}
-        <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
-        
-        <Routes>
-          {/* Public routes */}
-          <Route path="/onboarding" element={<OnboardingPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          
-          {/* Main app routes - Header'a toggleSidebar prop'u eklenecek */}
-          <Route path="/feed" element={<FeedPage onToggleSidebar={toggleSidebar} />} />
-          <Route path="/search" element={<FeedPage onToggleSidebar={toggleSidebar} />} />
-          <Route path="/artist/:id" element={<ArtistPage onToggleSidebar={toggleSidebar} />} />
-          <Route path="/song/:id" element={<SongPage onToggleSidebar={toggleSidebar} />} />
-          <Route path="/send-respect" element={<SendRespectPage onToggleSidebar={toggleSidebar} />} />
-          <Route path="/user/:id" element={<UserPage onToggleSidebar={toggleSidebar} />} />
-          <Route path="/profile" element={<UserPage onToggleSidebar={toggleSidebar} />} />
-          <Route path="/forgot-password" element={<LoginPage />} />
-          
-          {/* Default redirects */}
-          <Route path="/" element={<Navigate to="/onboarding" replace />} />
-          <Route path="*" element={<Navigate to="/onboarding" replace />} />
-        </Routes>
-      </div>
-    </Router>
+    <ErrorBoundary>
+      <AppProvider>
+        <Router>
+          <div className="App">
+            {/* Sidebar */}
+            <Sidebar />
+            
+            {/* Toast Container */}
+            <ToastContainer />
+            
+            <Routes>
+            {/* Public routes - Only accessible when not authenticated */}
+            <Route path="/onboarding" element={
+              <ProtectedRoute requireAuth={false}>
+                <OnboardingPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/login" element={
+              <ProtectedRoute requireAuth={false}>
+                <LoginPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/signup" element={
+              <ProtectedRoute requireAuth={false}>
+                <SignupPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/forgot-password" element={
+              <ProtectedRoute requireAuth={false}>
+                <LoginPage />
+              </ProtectedRoute>
+            } />
+            
+            {/* Protected routes - Only accessible when authenticated */}
+            <Route path="/feed" element={
+              <ProtectedRoute>
+                <FeedPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/search" element={
+              <ProtectedRoute>
+                <FeedPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/artist/:id" element={
+              <ProtectedRoute>
+                <ArtistPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/song/:id" element={
+              <ProtectedRoute>
+                <SongPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/send-respect" element={
+              <ProtectedRoute>
+                <SendRespectPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/user/:id" element={
+              <ProtectedRoute>
+                <UserPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <UserPage />
+              </ProtectedRoute>
+            } />
+            
+            {/* Default redirects */}
+            <Route path="/" element={<Navigate to="/onboarding" replace />} />
+            <Route path="*" element={<Navigate to="/onboarding" replace />} />
+          </Routes>
+        </div>
+      </Router>
+    </AppProvider>
+  </ErrorBoundary>
   )
 }
 

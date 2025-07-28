@@ -1,19 +1,21 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useUI } from '../context/AppContext'
 
-const Sidebar = ({ isOpen, onClose }) => {
+const Sidebar = () => {
   const navigate = useNavigate()
+  const { sidebarOpen, closeSidebar } = useUI()
 
   const handleNavigation = (path) => {
     navigate(path)
-    onClose() // Sidebar'ı kapat
+    closeSidebar() // Sidebar'ı kapat
   }
 
   const handleLogout = () => {
     // Çıkış işlemi - şimdilik console.log, ileride auth service eklenebilir
     console.log('Çıkış yapılıyor...')
     navigate('/login')
-    onClose()
+    closeSidebar()
   }
 
   const menuItems = [
@@ -52,14 +54,14 @@ const Sidebar = ({ isOpen, onClose }) => {
     <>
       {/* Overlay */}
       <div 
-        className={`sidebar-overlay ${isOpen ? 'active' : ''}`}
-        onClick={onClose}
+        className={`sidebar-overlay ${sidebarOpen ? 'active' : ''}`}
+        onClick={closeSidebar}
       />
       
       {/* Sidebar */}
-      <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
-          <button className="sidebar-close" onClick={onClose}>
+          <button className="sidebar-close" onClick={closeSidebar}>
             ✕
           </button>
         </div>
